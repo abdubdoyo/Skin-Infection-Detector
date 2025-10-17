@@ -16,4 +16,4 @@ An AI-powered web app that detects skin infections from images using deep learni
 - **Backend:** Python, TensorFlow/Keras, Flask or FastAPI
 - **Frontend:** React or Streamlit (optional)
 - **Model:** CNN (e.g., EfficientNet, MobileNet)
-- **Tools:** Docker, Git, GitHub Actions, VS Code
+- **Tools:** Docker, Git, GitHub Actions, VS Code 
