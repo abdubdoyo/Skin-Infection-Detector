@@ -13,9 +13,10 @@ import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { useRouter } from 'expo-router';
 import { NavigationProp } from '@react-navigation/native';
+import { Platform } from 'react-native';
 
 // Define your backend URL in one place for easy updates.
-const API_BASE_URL = 'http://4.157.173.143:8000'; // Ensure this is correct
+const API_BASE_URL = 'http://192.168.2.13:8000'; // Ensure this is correct
 
 const UploadScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
   const [image, setImage] = useState<string | null>(null);
@@ -57,15 +58,23 @@ const UploadScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
     }
   };
 
-  const uploadImage = async (imageUri: string) => {
+  async function uploadImage (imageUri: string) {
     try {
       const filename = imageUri.split('/').pop() || `image-${Date.now()}.jpg`;
       const formData = new FormData();
-      formData.append('image', {
+      if(Platform.OS == 'web'){
+        const resp = await fetch(imageUri);
+        const blob = await resp.blob();
+        const file = new File([blob], filename, { type: blob.type || 'image/jpeg'});
+        formData.append('image', file);
+      }else{
+        formData.append('image', {
         uri: imageUri,
         name: filename,
         type: 'image/jpeg',
       } as any);
+      }
+      
 
       const response = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
@@ -160,6 +169,7 @@ const UploadScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
         params: {
           result: JSON.stringify(result),
           allergies: allergyInput,
+          recommendations: JSON.stringify(recommendations),
         },
       });
 

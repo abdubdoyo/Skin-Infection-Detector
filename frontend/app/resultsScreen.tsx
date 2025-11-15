@@ -4,7 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 // Define your backend URL in one place for easy updates.
-const API_BASE_URL = 'http://4.157.173.143:8000'; // Ensure this is correct
+const API_BASE_URL = 'http://192.168.2.13:8000'; // Ensure this is correct
 
 export default function ResultsScreen() {
   const { result, allergies } = useLocalSearchParams(); // Get result and allergies from navigation params

@@ -15,6 +15,8 @@ CORS(app, resources={
     r"/recommend": {"origins": "*"}
 })
 
+CORS(app, supports_credentials=False, resources={r"/*": {"origins": "*"}})
+
 task_results = {}
 UPLOAD_FOLDER = './uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
