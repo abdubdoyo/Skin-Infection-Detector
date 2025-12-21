@@ -1,13 +1,11 @@
 # 🧠 AI Skin Infection Detector
 
-An AI-powered web app that detects skin infections from images using deep learning and recommends supplements for treatment and care.
-
-## 🚀 Features
+An AI-driven skin disease detection platform that leverages convolutional neural networks and transfer learning to classify 10 distinct skin diseases from images. The system processes user-uploaded images and returns diagnosis probabilities, dietary recommendations, and suggested supplements to support skin care, all through a web-based interface.
 
 ## 🎥 App Preview
 https://github.com/user-attachments/assets/0694098a-f881-4f9a-a4bd-b8701964d76b
 
-
+## 🚀 Features
 - Detects common skin diseases from images
 - Trained on a custom dataset with balanced classes
 - Uses transfer learning (EfficientNet/ResNet) for high accuracy
