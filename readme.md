@@ -1,28 +1,60 @@
-# 🧠 AI Skin Infection Detector
+# 🧠 Derma Detect — AI-Based Skin Condition Risk Assessment
 
-An AI-driven skin disease detection platform that leverages convolutional neural networks and transfer learning to classify 10 distinct skin diseases from images. The system processes user-uploaded images and returns diagnosis probabilities, dietary recommendations, and suggested supplements to support skin care, all through a web-based interface.
+Derma Detect is an AI-powered application that uses convolutional neural networks and transfer learning
+to analyze skin images and estimate the likelihood of common skin conditions.
+The system provides educational insights and non-clinical skincare guidance to support early awareness,
+while prioritizing user privacy and ethical AI practices.
+
+This project explores how machine learning can be used responsibly to support early awareness while respecting ethical and privacy constraints.
 
 ## 🎥 App Preview
 https://github.com/user-attachments/assets/0694098a-f881-4f9a-a4bd-b8701964d76b
 
-## 🚀 Features
-- Detects common skin diseases from images
-- Trained on a custom dataset with balanced classes
-- Uses transfer learning (EfficientNet/ResNet) for high accuracy
-- Recommends supplements based on disease diagnosis
-- Web-friendly interface for image uploads and results
-- Includes user safety disclaimer and ethical data handling
+## 🧩 System Architecture
+Derma Detect follows a modular client–server architecture:
+
+1. **Client Interface**
+   - Users upload skin images via a web/mobile interface
+   - Images are validated for format and quality before submission
+
+2. **Backend API (Flask)**
+   - Handles image preprocessing and inference requests
+   - Exposes REST endpoints for predictions and recommendations
+   - Enforces request limits and input validation
+
+3. **ML Inference Pipeline**
+   - Pretrained CNN (EfficientNet/MobileNet) fine-tuned using transfer learning
+   - Images are resized, normalized, and augmented before inference
+   - Model outputs class probabilities for 10 skin condition categories
+
+4. **Recommendation Engine**
+   - Maps predicted risk categories to educational skincare guidance
+   - Outputs non-medical suggestions for skin care and lifestyle awareness
+
+## 📊 Evaluation
+- Achieved ~70% validation accuracy across 10 skin condition classes
+- Evaluated using a held-out validation split
+- Confusion matrix analysis used to identify overlapping disease classes
+- Model performance varies depending on lighting and image quality
+- Trained on a curated dataset of labeled skin-condition images sourced from publicly available medical image repositories
+
+## 🔐 Privacy, Ethics & Safety
+- Uploaded images are processed temporarily and **automatically deleted after inference**
+- No user images or personal data are stored
+- The system does **not** provide medical diagnoses
+- Results are presented as educational risk assessments only
+- Includes clear user disclaimers encouraging consultation with medical professionals
 
 ## 🏗️ Tech Stack
 
-- **Backend:** Python, TensorFlow/Keras, Flask or FastAPI
-- **Frontend:** React or Streamlit (optional)
+- **Backend:** Python, TensorFlow/Keras, Flask 
+- **Frontend:** React Native
 - **Model:** CNN (e.g., EfficientNet, MobileNet)
 - **Tools:** Docker, Git, GitHub Actions, VS Code
 
 - ## 🚀 Getting Started
 
-Follow these steps to set up and run the Skin Infection Detector application locally.
+Follow these steps to set up and run the Derma Detect application locally.
 
 ### Prerequisites
 
